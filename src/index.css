@@ -1,4 +1,4 @@
-
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css");
 
 body {
   margin: 0;
@@ -16,85 +16,158 @@ code {
 
 .container {
   background-image: url('./Images/background.jpg');
-  height: 100vh;
+  height: 50rem;
   width: 100vw;
   background-size: cover;
+  position: relative;
 }
 
-.fifa-19 {
-  height: 6vw;
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #FF0068;
+  --clr-body: #333;
+  --clr-bg: #ddd;
+}
+
+body {
+  font-family: basic-sans, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125em;
+  line-height: 1.6;
+  color: var(--clr-body);
+  background: var(--clr-bg);
+}
+
+.fifa-image {
+  width: 20vw;
+  position: relative;
+  border-radius: 30px;
+  right: -70vw;
+  top: 8vw;
+}
+
+.content {
+  background: white;
+  width: 45vw;
+  box-shadow: 0 0 15px 2px rgb(0 0 0 / 15%);
+  position: relative;
+  border-radius: 5px;
+  right: -50vw;
+  top: 15vw;
+}
+
+.search {
+  --size: 60px;
+  border: 2px solid var(--clr-primary);
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  font-size: 1.25em;
+  position: relative;
   width: 100%;
-  display: flex;
+  transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  padding: 3px;
+}
+
+.search__input {
+  border: 0;
+  padding: .25em 1em;
+  flex-grow: 1;
+  outline: 0;
+  z-index: 2;
   position: absolute;
-  justify-content: end;
-  top: 4rem;
-  left: -10rem;
-
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  opacity: 0;
+  font-size: 0.7em;
+  opacity: 1;
+  cursor: pointer;
 }
-.fifa-19 img{
-   height: 6vw;
-  object-fit: cover;
+
+.search__submit {
+  font-size: 1.2rem;
+  margin-left: auto;
+  background: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 200ms ease-out;
+  width: calc(var(--size) - 10px);
+  height: calc(var(--size) - 10px);
+  width: 10vw;
+  background: var(--clr-primary);
+  color: white;
+  cursor: pointer;
 }
 
-.searchContainer {
-  display: grid;
-  place-items: end;
+@media screen and (max-width:45em) {
+  .search__submit {
+    font-size: 0.5em;
+  }
+  .searchResults {
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .searchResults div {
+    font-size: 0.7em;
+    width: 100%;
+    margin-right: 100%;
+    background: linear-gradient(270deg, rgba(255,255,255,0.7), rgba(255, 0, 104, 2.5));
+  }
+  
+  .fifa-image{
+    width: 20vw;
+    margin: auto;
+    right: -40vw;
+    margin-top: 8vw;
+  }
+  .content {
+    background: white;
+    width: 90vw;
+    margin: auto;
+    right: 0vw;
+    top: 15vw;
+  }
+  
+}
+
+.searchResults{
+  width: 45vw;
   position: relative;
-  right: 10rem;
-  top: 10rem;
-}
-
-/* .searchBox {
-  margin-top: 10vh;
+  border-radius: 5px;
+  right: -50vw;
+  top: 20vw;
   display: flex;
-} */
-
-/* .searchBar {
-  width: 35vw;
-  height: 4vw;
-  font-size: 1.2em;
-  padding: 1em;
-  border-radius: 0.5em;
-  position: relative;
-} */
-
-.searchBar {
-position: absolute;
-width: 44.688rem;
-height: 4.313rem;
-left: 48.563rem;
-top: 2.813rem;
-font-size: 1.5em;
-padding-left: 1em;
-background: #FFFFFF;
-border-radius: 10px;
+  justify-content: center;
+  flex-direction: column;
 }
 
-/* .searchBox span {
-  position: absolute;
-    right: 0;
-    top: 10vh;
-    padding: 1rem;
-    font-size: 1.3em;
-    background-color: #FF0068;
-    border-radius: 0 10px 10px 0;
-    object-fit: cover;
-} */
-
-.searchBox a {
-position: absolute;
-width: 10.688rem;
-height: 4.188rem;
-left: 82.5rem;
-top: 2.938rem;
-text-align: center;
-font-size: 2em;
-display: grid;
-place-items: center;
-background: #FF0068;
-border-radius: 0 10px 10px 0;
-text-decoration: none;
-color: white;
+.searchResults div {
+  width: 28rem;
+  padding: 0.5em;
+  background: rgba(255,255,255,0.9);
+  border-radius: 5px;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 0 15px 2px rgb(0 0 0 / 10%);
 }
+
+.searchResults div a {
+  text-decoration: none;
+  color: black;
+}
+
+
 
 
