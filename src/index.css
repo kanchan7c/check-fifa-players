@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +13,88 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  background-image: url('./Images/background.jpg');
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+}
+
+.fifa-19 {
+  height: 6vw;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: end;
+  top: 4rem;
+  left: -10rem;
+
+}
+.fifa-19 img{
+   height: 6vw;
+  object-fit: cover;
+}
+
+.searchContainer {
+  display: grid;
+  place-items: end;
+  position: relative;
+  right: 10rem;
+  top: 10rem;
+}
+
+/* .searchBox {
+  margin-top: 10vh;
+  display: flex;
+} */
+
+/* .searchBar {
+  width: 35vw;
+  height: 4vw;
+  font-size: 1.2em;
+  padding: 1em;
+  border-radius: 0.5em;
+  position: relative;
+} */
+
+.searchBar {
+position: absolute;
+width: 44.688rem;
+height: 4.313rem;
+left: 48.563rem;
+top: 2.813rem;
+font-size: 1.5em;
+padding-left: 1em;
+background: #FFFFFF;
+border-radius: 10px;
+}
+
+/* .searchBox span {
+  position: absolute;
+    right: 0;
+    top: 10vh;
+    padding: 1rem;
+    font-size: 1.3em;
+    background-color: #FF0068;
+    border-radius: 0 10px 10px 0;
+    object-fit: cover;
+} */
+
+.searchBox a {
+position: absolute;
+width: 10.688rem;
+height: 4.188rem;
+left: 82.5rem;
+top: 2.938rem;
+text-align: center;
+font-size: 2em;
+display: grid;
+place-items: center;
+background: #FF0068;
+border-radius: 0 10px 10px 0;
+text-decoration: none;
+color: white;
+}
+
+
