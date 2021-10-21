@@ -24,6 +24,18 @@ const Search = () => {
     setSearchTerm("");
   };
 
+  const matchingPlayer = (player, searchInput) => {
+    if (!player) return;
+    const matches = (val) =>
+      val.toLowerCase().includes(searchInput.toLowerCase());
+    return (
+      matches(player.Club) ||
+      matches(player.Nationality) ||
+      matches(player.Weight) ||
+      matches(player.Name)
+    );
+  };
+
   return (
     <div>
       <div className="content">
@@ -52,31 +64,19 @@ const Search = () => {
           )}
         </div>
       </div>
-      {allPlayers
-        .filter((val) => {
-          if (searchTerm === "") {
-            return val;
-          } else if (
-            val.Club.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            val.Nationality.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            val.Weight.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            val.Name.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-            return val;
-        })
-        .map((val) => {
-          return (
-            <div className="resultContainer">
-              <div className="searchResults">
-                <div>
-                  <Link to={`/Player_Data/${val.Name}`}>
-                    <span>{val.Name}</span>
-                  </Link>
-                </div>
+      {allPlayers.filter((player) => matchingPlayer(player, searchTerm)).map((val) => {
+        return (
+          <div className="resultContainer">
+            <div className="searchResults">
+              <div>
+                <Link to={`/Player_Data/${val.Name}`}>
+                  <span>{val.Name}</span>
+                </Link>
               </div>
             </div>
-          );
-        })}
+          </div>
+        );
+      })}
     </div>
   );
 };
