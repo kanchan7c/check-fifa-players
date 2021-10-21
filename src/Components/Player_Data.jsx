@@ -86,6 +86,7 @@ const Player_Data = () => {
                   width={500}
                   outerRadius="80%"
                   data={playerStats}
+                  className="radar-chart"
                 >
                   <PolarGrid />
                   <PolarAngleAxis dataKey="name" />
