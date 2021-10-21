@@ -5,7 +5,7 @@
 ### `Player Search Page`
 This is a single page website which has a functional search bar. Players can be searched using their Name, weight, Club and Nationality. React Hooks are used to capture the key events as we type in the search bar.
 
-### `Player Deatils Page
+### `Player Deatils Page`
 The search results will take you to player detail profile where you will find a navigation to homepage in case you want to search another player.
 
 ## Running this project
@@ -14,7 +14,9 @@ The search results will take you to player detail profile where you will find a 
 2. In the project directory, run `npm run build` in the terminal or command line
 3. Run `npm start` to start this application
 
+##Check live site
 
+Checkout `https://unruffled-blackwell-f89989.netlify.app/` for look of the site on third party hosting site Netlify
 
 ## Available Scripts
 
