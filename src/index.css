@@ -2,32 +2,42 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
-.container {
-  background-image: url('./Images/background.jpg');
+.home-page_container {
+  background-image: url("./Images/background.jpg");
   width: 100vw;
-  height: 100vh;
+  height: 110vh;
   background-size: cover;
-  position: relative;
 }
 
-*, *::before, *::after {
+.player-details_container {
+  background-image: url("./Images/background2.png");
+  width: 100vw;
+  height: 120vh;
+  background-color: white;
+  background-size: 40%;
+  background-repeat: no-repeat;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 :root {
-  --clr-primary: #FF0068;
+  --clr-primary: #ff0068;
   --clr-body: #333;
   --clr-bg: #ddd;
 }
@@ -60,6 +70,7 @@ body {
   border-radius: 5px;
   right: -50vw;
   top: 15vw;
+  /* z-index: 50; */
 }
 
 .search {
@@ -73,19 +84,20 @@ body {
   width: 100%;
   transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
   padding: 3px;
+  z-index: 50;
 }
 
 .search__input {
   border: 0;
-  padding: .25em 1em;
+  padding: 0.25em 1em;
   flex-grow: 1;
   outline: 0;
-  z-index: 2;
+  z-index: 50;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 90%;
   background: transparent;
   opacity: 0;
   font-size: 0.7em;
@@ -96,20 +108,22 @@ body {
 .search__submit {
   font-size: 1.2rem;
   margin-left: auto;
-  background: 0;
   border: 0;
   cursor: pointer;
   border-radius: 5px;
   transition: background 200ms ease-out;
-  width: calc(var(--size) - 10px);
   height: calc(var(--size) - 10px);
-  width: 10vw;
+  width: 8vw;
+  z-index: 200;
   background: var(--clr-primary);
   color: white;
   cursor: pointer;
 }
 
-@media screen and (max-width:45em) {
+@media screen and (max-width: 45em) {
+  .container {
+    height: 80rem;
+  }
   .search__submit {
     font-size: 0.5em;
   }
@@ -122,10 +136,14 @@ body {
     width: 100%;
     font-size: 0.7em;
     margin-right: 100%;
-    background: linear-gradient(270deg, rgba(255,255,255,0.7), rgba(255, 0, 104, 2.5));
+    background: linear-gradient(
+      270deg,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 0, 104, 2.5)
+    );
   }
-  
-  .fifa-image{
+
+  .fifa-image {
     width: 20vw;
     margin: auto;
     right: -40vw;
@@ -138,10 +156,31 @@ body {
     right: 0vw;
     top: 15vw;
   }
-  
+  .player-profile {
+    flex-direction: column;
+  }
+
+  .radar-chart-container {
+    border: 2px solid white !important;
+    width: 90% !important;
+    height: 400px !important;
+    margin: auto;
+  }
+
+  .player-details {
+    min-width: 90% !important;
+    margin: auto;
+  }
+
+  .player-name {
+    margin-right: 1em;
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    font-weight: bold;
+  }
 }
 
-.searchResults{
+.searchResults {
   width: 45vw;
   position: relative;
   border-radius: 5px;
@@ -155,18 +194,7 @@ body {
 .searchResults div {
   width: 32rem;
   padding: 0.5em;
-  background: rgba(255,255,255,0.9);
-  border-radius: 5px;
-  margin-bottom: 0.5em;
-  font-size: 1em;
-  font-weight: bold;
-  box-shadow: 0 0 15px 2px rgb(0 0 0 / 10%);
-}
-
-.player-details div {
-  width: 32rem;
-  padding: 0.5em;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
   margin-bottom: 0.5em;
   font-size: 1em;
@@ -178,22 +206,139 @@ body {
   text-decoration: none;
   color: black;
 }
-
-.player-details {
-  width: 90%;
+.player_name_image {
+  width: 35%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: auto;
+  margin-bottom: 1em;
 }
-.player-image {
-  width: 20vw;
+
+.player-profile {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
-  object-fit: cover;
-}
-.player-image img{
-  width: 20vw;
 }
 
+.player-image {
+  width: 150px;
+  margin: auto;
+  border-radius: 50%;
+}
 
+.player-image img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  min-width: 100px;
+  min-height: 100px;
+  margin-top: 1em;
+  background-color: var(--clr-primary);
+  border: 1px solid black;
+  transition: 0.5s;
+}
 
+.player-image img:hover {
+  transform: scale(1.8);
+}
+
+.player-name {
+  color: rgb(80, 78, 78);
+  font-size: 1.5em;
+  padding: 0.2em 0.5em;
+  border-radius: 10px;
+}
+
+.bi {
+  font-size: 1.5em;
+  margin-right: 0.2em;
+  font-weight: bolder;
+}
+
+.navBar {
+  margin-left: 3em;
+}
+
+.navBar a {
+  margin-top: 1em;
+  text-decoration: none;
+  color: rgb(87, 84, 84);
+  font-weight: bold;
+}
+.nav:hover {
+  color: var(--clr-primary);
+  cursor: pointer;
+}
+
+.navBar a i {
+  margin-left: 1em;
+  margin-right: 0;
+  cursor: pointer;
+}
+
+.player-details {
+  min-width: 40%;
+  margin-left: 3em;
+}
+
+.player_name_image {
+  display: flex;
+}
+ul {
+  list-style: none;
+}
+
+li {
+  margin-bottom: 0.5em;
+  font-size: 0.9em;
+}
+
+li span {
+  margin-right: 1em;
+  padding: 0.2em;
+  border-radius: 10px;
+  color: grey;
+}
+.player-detail_value {
+  text-align: right;
+  font-size: 1.1em;
+  color: black;
+}
+
+.radar-chart-container {
+  width: 55%;
+  height: 35vw;
+  min-height: 300px;
+  border-right: 1px solid rgba(168, 168, 168, 0.877);
+  margin-bottom: 2em;
+}
+
+.radar-chart {
+  width: 60%;
+  margin: auto;
+}
+
+.player_highlights {
+  padding: 1em 1.5em;
+  font-size: 1em;
+  background-color: rgba(55, 153, 17, 0.932);
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+}
+
+.player_highlights:hover {
+  background-color: var(--clr-primary);
+}
+
+.player_highlights strong {
+  margin-left: 2px;
+  font-size: 1.2em;
+}
+
+.player_highlights-all {
+  margin-bottom: 1.5em;
+}
