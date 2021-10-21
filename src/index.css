@@ -236,7 +236,7 @@ body {
   min-width: 100px;
   min-height: 100px;
   margin-top: 1em;
-  background-color: var(--clr-primary);
+  background-color: #F9C4D8;
   border: 1px solid black;
   transition: 0.5s;
 }

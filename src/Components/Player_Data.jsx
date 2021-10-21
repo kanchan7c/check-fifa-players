@@ -70,7 +70,7 @@ const Player_Data = () => {
           <i class="bi bi-question"></i> Help
         </Link>
       </div>
-      {playerDetails && playerDetails.Name ? (
+      {playerDetails ? (
         <>
           <div className="player_name_image">
             <span className="player-name">{playerDetails.Name}</span>
